@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Audio Dubbing & Subtitle Pro</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="bg-glow"></div>
+    
+    <div class="app-container">
+        <header class="app-header">
+            <div class="logo-badge">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> AI Studio
+            </div>
+            <h1>កែច្នៃសំឡេង និងបង្កើតអក្សររត់</h1>
+            <p>បម្លែងសំឡេងទៅជាអក្សរ និងបកប្រែដោយស្វ័យប្រវត្តិជាមួយ Gemini AI</p>
+        </header>
+
+        <div class="workspace">
+            <!-- Upload Card -->
+            <div class="glass-card">
+                <div class="dropzone" id="dropZone">
+                    <input type="file" id="audioFile" accept="audio/*,video/*">
+                    <div class="dropzone-content">
+                        <i class="fa-solid fa-cloud-arrow-up icon-pulse"></i>
+                        <span id="fileNameDisplay">ទម្លាក់ឯកសារ ឬ <b>ចុចទីនេះ</b> ដើម្បីជ្រើសរើស</span>
+                        <span class="file-hint">รองรับ MP3, WAV, MP4 (สูงสุด 500MB)</span>
+                    </div>
+                </div>
+
+                <div class="controls-grid">
+                    <div class="control-item">
+                        <label><i class="fa-solid fa-globe"></i> ភាសាក្នុងសំឡេង</label>
+                        <select id="sourceLang">
+                            <option value="auto">ស្វ័យប្រវត្តិ (Auto-detect)</option>
+                            <option value="zh">ចិន (Chinese)</option>
+                            <option value="en">អង់គ្លេស (English)</option>
+                            <option value="ko">កូរ៉េ (Korean)</option>
+                        </select>
+                    </div>
+                    <div class="control-item">
+                        <label><i class="fa-solid fa-language"></i> បកប្រែទៅជា</label>
+                        <select id="targetLang">
+                            <option value="Khmer">ភាសាខ្មែរ (Khmer)</option>
+                            <option value="English">អង់គ្លេស (English)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="control-item full-width">
+                    <label><i class="fa-solid fa-book-bookmark"></i> វចនានុក្រម / ឈ្មោះតួអង្គ (ស្រេចចិត្ត)</label>
+                    <input type="text" id="glossary" placeholder="ឧ. 林风 = លីនហ៊ុង, 3B = ស្ដេចនាគ">
+                </div>
+
+                <button id="processBtn" class="btn-glow">
+                    <span>ចាប់ផ្តើមដំណើរការ AI</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+
+            <!-- Result Card -->
+            <div class="glass-card result-card" id="resultSection" style="display: none;">
+                <div class="result-header">
+                    <h3><i class="fa-solid fa-terminal"></i> លទ្ធផលអក្សររត់ (Subtitles)</h3>
+                    <div class="action-buttons">
+                        <button class="btn-icon" id="copyBtn" title="ចម្លងអត្ថបទ"><i class="fa-regular fa-copy"></i></button>
+                        <button class="btn-icon" id="downloadBtn" title="ទាញយកไฟล์ .SRT"><i class="fa-solid fa-download"></i></button>
+                    </div>
+                </div>
+                <div class="output-box" id="outputResult">
+                    <div class="loader"></div>
+                    <p>កំពុងវិភាគសំឡេង និងបកប្រែ...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
